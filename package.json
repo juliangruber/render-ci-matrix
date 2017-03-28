@@ -1,0 +1,19 @@
+{
+  "name": "render-ci-matrix",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": "juliangruber/render-ci-matrix",
+  "description": "Render a CI results matrix to the terminal",
+  "scripts": {
+    "test": "prettier-standard-formatter *.js && standard"
+  },
+  "devDependencies": {
+    "prettier-standard-formatter": "^0.222222222222222.333333333333333",
+    "standard": "^9.0.2"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "cli-spinners": "^1.0.0",
+    "ms": "^1.0.0"
+  }
+}
