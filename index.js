@@ -15,7 +15,15 @@ module.exports = () => {
 
     if (!state.repo) return `${chalk.gray(frame)} Loading repo`
 
-    if (!state.build) return `${chalk.gray(frame)} Loading build`
+    if (!state.build) {
+      out += `${chalk.gray(frame)} Loading build`
+      if (state.started && new Date() - state.started > ms('10s')) {
+        out += chalk.yellow(
+          `\nIt is taking unusually long to fetch your build.\nHave you pushed your commits yet?`
+        )
+      }
+      return out
+    }
 
     if (!state.commit.id) return `${chalk.gray(frame)} Looking for commit`
 
