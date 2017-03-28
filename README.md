@@ -72,7 +72,7 @@ $ npm install render-ci-matrix
 
 ## Related
 
-- __[travis-watch](htts://github.com/juliangruber/travis-watch)__ &mdash; Stream live travis test results of the current commit to your terminal!
+- __[travis-watch](https://github.com/juliangruber/travis-watch)__ &mdash; Stream live travis test results of the current commit to your terminal!
 
 ## License
 
