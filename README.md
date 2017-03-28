@@ -18,6 +18,7 @@ process.stdout.write(render({
     id: 13,
     number: 42
   },
+  started: Date.now(),
   commit: {
     id: '123456',
     branch: 'master'
