@@ -21,16 +21,16 @@ module.exports = () => {
 
     let header = `\n${chalk.bold('Build')} #${state.build.number}`
     if (typeof state.success === 'boolean') {
-      header = state.success
-        ? chalk.green(header)
-        : chalk.red(header)
+      header = state.success ? chalk.green(header) : chalk.red(header)
     }
 
     out += header
     out += ` ${chalk.gray.bold(`${state.repo[0]}/${state.repo[1]}`)} ${chalk.gray(`#${state.commit.branch}`)}`
     out += `\n${chalk.blue.underline(state.link)}\n\n`
 
-    if (!Object.keys(state.results).length) return out + `  ${chalk.gray(frame)} Loading jobs`
+    if (!Object.keys(state.results).length) {
+      return out + `  ${chalk.gray(frame)} Loading jobs`
+    }
 
     Object.keys(state.results).forEach((os, i, arr) => {
       if (arr.length > 1) out += `${chalk.gray(os)}\n`
@@ -55,9 +55,9 @@ const check = (job, frame) => {
   const out = job.state === 'failed' && !job.allow_failure
     ? chalk.red('×')
     : job.state === 'failed' && job.allow_failure
-    ? chalk.gray('×')
-    : job.state === 'passed'
-        ? chalk.green('✓')
-        : job.state === 'started' ? chalk.yellow(frame) : chalk.gray(frame)
+        ? chalk.gray('×')
+        : job.state === 'passed'
+            ? chalk.green('✓')
+            : job.state === 'started' ? chalk.yellow(frame) : chalk.gray(frame)
   return out
 }
