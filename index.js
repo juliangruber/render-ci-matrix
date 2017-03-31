@@ -25,7 +25,7 @@ module.exports = () => {
       return out
     }
 
-    if (!state.commit.id) return `${chalk.gray(frame)} Looking for commit`
+    if (!state.commit.found) return `${chalk.gray(frame)} Looking for commit`
 
     let header = `\n${chalk.bold('Build')} #${state.build.number}`
     if (typeof state.success === 'boolean') {
@@ -45,9 +45,9 @@ module.exports = () => {
 
       Object.keys(state.results[os]).forEach(key => {
         const job = state.results[os][key]
-        out += `  ${check(job, spinners.dots.frames[frameIdx])} ${job.config.language}: ${job.version} ${chalk.gray(job.config.env || '')}`
+        out += `  ${check(job, spinners.dots.frames[frameIdx])} ${job.name} ${chalk.gray(job.env || '')}`
         if (job.state === 'started') {
-          out += ` ${chalk.white(`(${ms(new Date() - new Date(job.started_at))})`)}`
+          out += ` ${chalk.white(`(${ms(new Date() - new Date(job.startedAt))})`)}`
         }
         out += '\n'
       })
@@ -60,9 +60,9 @@ module.exports = () => {
 }
 
 const check = (job, frame) => {
-  const out = job.state === 'failed' && !job.allow_failure
+  const out = job.state === 'failed' && !job.allowFailure
     ? chalk.red('×')
-    : job.state === 'failed' && job.allow_failure
+    : job.state === 'failed' && job.allowFailure
         ? chalk.gray('×')
         : job.state === 'passed'
             ? chalk.green('✓')

@@ -8,7 +8,7 @@ process.stdout.write(
       number: 42
     },
     commit: {
-      id: '123456',
+      found: true,
       branch: 'master'
     },
     success: true,
@@ -16,36 +16,24 @@ process.stdout.write(
     results: {
       osx: {
         foo: {
-          version: '6',
-          config: {
-            language: 'node_js',
-            env: 'FOO=bar'
-          },
-          started_at: Date.now() - 1000,
+          name: 'node 6',
+          env: 'FOO=bar',
+          startedAt: Date.now() - 1000,
           state: 'started'
         },
         bar: {
-          version: '1.0',
-          config: {
-            language: 'ruby'
-          },
+          name: 'ruby 1.0',
           state: 'queued'
         },
         beep: {
-          version: '5.2',
-          config: {
-            language: 'php'
-          },
-          started_at: Date.now() - 10000,
+          name: 'php 5.2',
+          startedAt: Date.now() - 10000,
           state: 'started'
         }
       },
       linux: {
         boop: {
-          version: '1.0',
-          config: {
-            language: 'golang'
-          },
+          name: 'golang 1.0',
           state: 'queued'
         }
       }
