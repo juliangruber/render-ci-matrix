@@ -35,7 +35,7 @@ module.exports = () => {
     out += header
     out += ` ${chalk.gray.bold(`${state.repo[0]}/${state.repo[1]}`)} ${chalk.gray(`#${state.commit.branch}`)}`
     if (state.build.startedAt) {
-      out += ` ${chalk.white(`(${ms(new Date() - new Date(state.build.startedAt))})`)}`
+      out += ` ${chalk.white(`(${ms(new Date(state.build.finishedAt || Date.now()) - new Date(state.build.startedAt))})`)}`
     }
     out += `\n${chalk.blue.underline(state.link)}\n\n`
 
