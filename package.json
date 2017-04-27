@@ -1,6 +1,6 @@
 {
   "name": "render-ci-matrix",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "license": "MIT",
   "repository": "juliangruber/render-ci-matrix",
   "description": "Render a CI results matrix to the terminal",
