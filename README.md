@@ -17,7 +17,8 @@ process.stdout.write(
     repo: ['juliangruber', 'render-ci-results'],
     build: {
       id: 13,
-      number: 42
+      number: 42,
+      startedAt: Date.now() - 1500
     },
     commit: {
       found: true,
